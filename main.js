@@ -7,6 +7,7 @@ const day = new Date();
 const hh = day.getHours() * 30;
 const mm = day.getMinutes() * 6;
 const ss = day.getSeconds() * 6;
+const addZero = (num) => (num < 9 ? `0${num}` : num);
 
 setInterval(() => {
   const day = new Date();
@@ -27,9 +28,13 @@ setInterval(() => {
 
   //   Show Digital Time
   const h =
-    time.getHours() === 0 ? 12 : time.getHours() > 12 && time.getHours() - 12;
-  hours.innerHTML = h;
-  minutes.innerHTML = time.getMinutes();
-  seconds.innerHTML = time.getSeconds();
+    time.getHours() === 0
+      ? 12
+      : time.getHours() > 12
+      ? time.getHours() - 12
+      : time.getHours();
+  hours.innerHTML = addZero(h);
+  minutes.innerHTML = addZero(time.getMinutes());
+  seconds.innerHTML = addZero(time.getSeconds());
   ampm.innerHTML = time.getHours() > 12 ? "PM" : "AM";
 });

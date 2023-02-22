@@ -62,7 +62,7 @@ body {
 
 .clock span {
   position: absolute;
-  inset: 20px;
+  inset: 15px;
   color: #fff;
   text-align: center;
   transform: rotate(calc(30deg * var(--i)));
